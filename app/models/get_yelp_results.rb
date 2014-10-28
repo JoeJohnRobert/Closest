@@ -8,10 +8,10 @@ class GetYelpResults
 
   
   YELP = Yelp::Client.new(
-    { consumer_key: "",
-      consumer_secret: "", 
-      token: "",
-      token_secret: ""                       
+    { consumer_key: "0yHQ2gzvTtFhjhXtK8yKKA",
+      consumer_secret: "0yHQ2gzvTtFhjhXtK8yKKA", 
+      token: "7rNZdbPJ7sOQo5sZieFXrYMT3blij28Q",
+      token_secret: "wYOm_AZaCizrz66JkN6wLKftJos"                       
     })
 
   def get_yelp_results
