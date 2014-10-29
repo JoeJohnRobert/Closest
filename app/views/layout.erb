@@ -24,7 +24,7 @@
 </div>
 
 <!-- form in javascript -->
-<FORM NAME="myform" ACTION="" METHOD="GET">What do you want: <BR>
+<FORM NAME="myform" ID="search-box" ACTION="" METHOD="GET">What do you want: <BR>
 <INPUT TYPE="text" NAME="inputbox" VALUE="Donut" ID="user-input"><P>
 <INPUT TYPE="button" NAME="button" Value="Click" ID="user-submit">
 </FORM>
@@ -39,6 +39,7 @@ if (navigator.geolocation) {
 }
 //Sets startPos and times out if time is too long
 $("#user-submit").click(function () {
+    var_name = document.getElementById("search-box").style.display = 'none';
     var startPos;
     var geoOptions = {
         timeout: 10 * 1000
