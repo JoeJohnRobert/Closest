@@ -8,15 +8,15 @@ class GetYelpResults
 
   
   YELP = Yelp::Client.new(
-    { consumer_key: "0yHQ2gzvTtFhjhXtK8yKKA",
-      consumer_secret: "0yHQ2gzvTtFhjhXtK8yKKA", 
-      token: "7rNZdbPJ7sOQo5sZieFXrYMT3blij28Q",
-      token_secret: "wYOm_AZaCizrz66JkN6wLKftJos"                       
+    { consumer_key: "cbOyL0UUJw4Co2K6wWuj3g",
+      consumer_secret: "ydBnkodBIIyT0LZZFflkvOmn6s0", 
+      token: "TWTfIdvI530rk-bURsuK9ltpz3mrqJxu",
+      token_secret: "RIxPZ1hHLLBd_zJI3gpWKCV_bL8"                       
     })
 
   def get_yelp_results
     search_results = []
-    params = {term: 'donuts', limit: 4, sort: 1}
+    params = {term: @query, limit: 4, sort: 2}
     response = YELP.search('Brooklyn', params)
     response.businesses.each do |biz|
       search_results << [biz.name, biz.rating, biz.url]

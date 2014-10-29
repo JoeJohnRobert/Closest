@@ -4,15 +4,25 @@ class LocationController < ApplicationController
   #   erb :'/input'
   #   binding.pry
   # end
+  get '/' do 
+    erb :'form'
+
+    # erb :'layout'
+  end
 
   post '/' do 
     # binding.pry
-    @search = params[:location]
+    # @search = params[:location]
+    @search = params[:search_box]
+    redirect 'search_results'
   end
 
-  get '/' do 
-    erb :'layout'
-  end
+  get '/search_results' do
+    # binding.pry
+    @connection = GetYelpResults.new('donuts')
+    @yelp_info = @connection.get_yelp_results
+    erb :'search_results'
+  end  
 
   get '/results' do 
     @lat = params[:lat]
