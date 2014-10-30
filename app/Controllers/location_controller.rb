@@ -18,8 +18,8 @@ class LocationController < ApplicationController
     @lat = params[:lat]
     @lon = params[:lon]
     @input = params[:input]
-    # GetYelpResults.new.get_yelp_results
-    hash = {:latitude => @lat, :longitude => @lon, :input => @input}.to_json
+    bananna = GetYelpResults.new(@input, @lat.to_f, @lon.to_f)
+    bananna.get_yelp_results.to_json
   end
 
 end

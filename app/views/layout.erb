@@ -23,7 +23,10 @@
   
 </div>
 
-<!-- form in javascript -->
+<div class ="map" style = "Hidden">
+    <!-- code for map -->
+<div>
+
 <FORM NAME="myform" ID="search-box" ACTION="" METHOD="GET">What do you want: <BR>
 <INPUT TYPE="text" NAME="inputbox" VALUE="Donut" ID="user-input"><P>
 <INPUT TYPE="button" NAME="button" Value="Click" ID="user-submit">
@@ -57,9 +60,14 @@ $("#user-submit").click(function () {
                 lat: latitude,
                 lon: longitude,
                 input: term
+            },
+            success: function(response){
+                JSON.parse(response).forEach(function(arr){
+                  $(".shops").append("<a href=" + arr[2] + "><li>" + arr[0] + ", rated: " + arr[1] + " stars. </li></a>")
+                });
             }
         }).done(function (shops) {
-            $(".shops").append(shops);
+            // $(".shops").append(shops);
             // console.log(shops);
         });
     };
