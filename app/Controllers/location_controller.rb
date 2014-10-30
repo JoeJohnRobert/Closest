@@ -16,12 +16,13 @@ class LocationController < ApplicationController
     @search = params[:yelp]
     @connection = GetYelpResults.new(@search)
     @connection.save
+    # binding.pry
     redirect 'search_results'
   end
 
   get '/search_results' do
     # binding.pry
-    connection = GetYelpResults.first
+    connection = GetYelpResults.last
     # binding.pry
     @yelp_info = connection.get_yelp_results
     erb :'search_results'
