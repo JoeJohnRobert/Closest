@@ -22,7 +22,7 @@ class GetYelpResults
     response.businesses.each do |biz|
       distance = (biz.distance.to_f * 3.28084)
         if distance > 1000
-          distance = "#{(distance * 0.000189394).to_i} mi"
+          distance = "#{(distance * 0.000189394).to_s.slice(0,3)} miles"  
         else
           distance = "#{distance.to_i} ft"  
         end   
