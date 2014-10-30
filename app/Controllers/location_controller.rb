@@ -13,14 +13,17 @@ class LocationController < ApplicationController
   post '/' do 
     # binding.pry
     # @search = params[:location]
-    @search = params[:search_box]
+    @search = params[:yelp]
+    @connection = GetYelpResults.new(@search)
+    @connection.save
     redirect 'search_results'
   end
 
   get '/search_results' do
     # binding.pry
-    @connection = GetYelpResults.new('donuts')
-    @yelp_info = @connection.get_yelp_results
+    connection = GetYelpResults.first
+    # binding.pry
+    @yelp_info = connection.get_yelp_results
     erb :'search_results'
   end  
 

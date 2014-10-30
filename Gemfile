@@ -10,4 +10,8 @@ gem 'shotgun'
 gem 'pry'
 gem 'require_all'
 gem 'yelp', require: 'yelp'
+gem 'activerecord', :require => 'active_record'
+gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
+gem 'sqlite3'
+gem 'tux'
 

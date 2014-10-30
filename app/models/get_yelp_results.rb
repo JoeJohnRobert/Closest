@@ -1,10 +1,10 @@
-class GetYelpResults
+class GetYelpResults < ActiveRecord::Base
 
-  attr_reader :query
+  # attr_reader :query
 
-  def initialize(query)
-    @query = query
-  end  
+  # def initialize(query)
+  #   @query = query
+  # end  
 
   
   YELP = Yelp::Client.new(
@@ -16,7 +16,7 @@ class GetYelpResults
 
   def get_yelp_results
     search_results = []
-    params = {term: @query, limit: 4, sort: 2}
+    params = {term: self.query, limit: 4, sort: 2}
     response = YELP.search('Brooklyn', params)
     response.businesses.each do |biz|
       search_results << [biz.name, biz.rating, biz.url]
