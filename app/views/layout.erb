@@ -63,7 +63,7 @@ $("#user-submit").click(function () {
             },
             success: function(response){
                 JSON.parse(response).forEach(function(arr){
-                  $(".shops").append("<a href=" + arr[2] + "><li>" + arr[0] + ", rated: " + arr[1] + " stars. </li></a>")
+                  $(".shops").append("<a href=" + arr[2] + "><li>" + arr[0] + ", Rated: " + arr[1] + " stars, Located " + arr[4] + " away at: " + arr[3] + "</li></a>")
                 });
             }
         }).done(function (shops) {

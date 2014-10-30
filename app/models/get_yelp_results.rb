@@ -20,7 +20,15 @@ class GetYelpResults
     params = {term: self.query, limit: 1, sort: 1}
     response = YELP.search_by_coordinates(@coordinates, params)
     response.businesses.each do |biz|
-      search_results << [biz.name, biz.rating, biz.url]
+      distance = (biz.distance.to_f * 3.28084)
+        if distance > 1000
+          distance = "#{(distance * 0.000189394).to_i} mi"
+        else
+          distance = "#{distance.to_i} ft"  
+        end   
+      address = [biz.location.address, biz.location.city, biz.location.state_code, biz.location.postal_code].join(", ")
+      search_results << [biz.name, biz.rating, biz.url, address, distance]
+
     end
     search_results  
   end
