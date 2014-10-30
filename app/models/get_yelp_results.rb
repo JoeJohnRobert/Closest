@@ -16,15 +16,16 @@ class GetYelpResults < ActiveRecord::Base
 
   def get_yelp_results
     search_results = []
-    params = {term: self.query, limit: 4, sort: 2}
-    response = YELP.search('Brooklyn', params)
+    params = {term: self.query, limit: 1, sort: 1}
+    coordinates = { latitude: 40.7053130, longitude: -74.0139110 }
+    response = YELP.search_by_coordinates(coordinates, params)
     response.businesses.each do |biz|
-      search_results << [biz.name, biz.rating, biz.url]
+      search_results << [biz.name, biz.location.display_address, biz.url]
     end
     search_results  
   end
 #SEARCH BY COORDINATES EXAMPLE
-# coordinates = { latitude: 37.7577, longitude: -122.4376 }
+
 # client.search_by_coordinates(coordinates, params)
 
 
