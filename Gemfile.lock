@@ -24,6 +24,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
+    gmaps4rails (2.1.2)
     i18n (0.6.11)
     json (1.8.1)
     method_source (0.8.2)
@@ -83,6 +84,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  gmaps4rails
   pry
   rake
   require_all
