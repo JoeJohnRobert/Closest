@@ -7,32 +7,25 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
     <title>Closest: A flatiron App</title>
 
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="navbar.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
-  <style>
-  html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  float:right;
-  bottom: 0;
-  width: 90%;
-  /* Set the fixed height of the footer here */
-  height: 40px;
-  background-color: #f5f5f5;
-  border-radius: 15px
-}
-  </style>
 
   <body>
 
@@ -55,24 +48,18 @@ body {
       <!-- Main component for a primary marketing message or call to action -->
       <div class="form_focus">
         <FORM NAME="myform" ID="search-box" ACTION="" METHOD="GET">
-          <label for='user-input'>Find me:  </label>
+          <label for='user-input'>"Find me: "</label>
         <INPUT TYPE="text" NAME="inputbox" VALUE="Donut" ID="user-input">
         <INPUT TYPE="button" NAME="button" Value="Click" ID="user-submit">
         </FORM>
       </div>
-        <div class="footer">
-        <div class="container">
-         <a href="https://github.com/JoeJohnRobert/flatiron_presents">Github</a>
-       </div>
-     </div>
 
     </div> <!-- /container -->
-      <div class="shops">
-  
-        </div>
 
 
-
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
     <script>
     // check for Geolocation support
     // $( "#user-submit" ).click(function() {
@@ -124,6 +111,10 @@ body {
 
         navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
     });
-    </script>
+</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
