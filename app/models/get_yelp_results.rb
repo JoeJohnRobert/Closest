@@ -27,7 +27,10 @@ class GetYelpResults
           distance = "#{distance.to_i} ft"  
         end   
       address = [biz.location.address, biz.location.city, biz.location.state_code, biz.location.postal_code].join(", ")
-      search_results << [biz.name, biz.rating, biz.url, address, distance]
+      search_result_coords = Geocoder.coordinates(address)  
+      search_results << [biz.name, biz.rating, biz.url, address, distance, search_result_coords]
+    
+    binding.pry
 
     end
     search_results  

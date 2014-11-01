@@ -10,4 +10,5 @@ gem 'shotgun'
 gem 'pry'
 gem 'require_all'
 gem 'yelp', require: 'yelp'
+gem 'geocoder'
 
