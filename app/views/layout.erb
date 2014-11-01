@@ -14,28 +14,44 @@
 
   </head>
   <style>
-  html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  float:right;
-  bottom: 0;
-  width: 90%;
-  /* Set the fixed height of the footer here */
-  height: 40px;
-  background-color: #f5f5f5;
-  border-radius: 15px
-}
+   html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: -60px;
+      }
+      #footer {
+        background-color: #f5f5f5;
+      }
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          width: 90px;
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
   </style>
 
   <body>
-
+    <div id="wrap">
     <div class="container">
 
       <!-- Static navbar -->
@@ -51,25 +67,34 @@ body {
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
+    </div>
 
       <!-- Main component for a primary marketing message or call to action -->
-      <div class="form_focus">
+
+      <div class="container">
+         <div class="col-xs-4 col-xs-offset-4" >
+            <div class="form_focus">
         <FORM NAME="myform" ID="search-box" ACTION="" METHOD="GET">
-          <label for='user-input'>Find me:  </label>
+          <label for='user-input'>Find me a:  </label>
         <INPUT TYPE="text" NAME="inputbox" VALUE="Donut" ID="user-input">
         <INPUT TYPE="button" NAME="button" Value="Click" ID="user-submit">
         </FORM>
-      </div>
-        <div class="footer">
-        <div class="container">
-         <a href="https://github.com/JoeJohnRobert/flatiron_presents">Github</a>
-       </div>
-     </div>
+    </div>
+</div>
 
-    </div> <!-- /container -->
-      <div class="shops">
-  
+      </div>
+        <div class="shops">
+
         </div>
+     </div>
+       <div id="push"></div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Ben Gross & Joe Cardarelli <a href="https://github.com/JoeJohnRobert/flatiron_presents">Closest: Github</p>
+      </div>
+    </div>
 
 
 
