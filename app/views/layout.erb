@@ -23,25 +23,32 @@
       }
 
       /* Wrapper for page content to push down footer */
-      #wrap {
+      .wrap {
         min-height: 100%;
-        height: auto !important;
+        margin-bottom: -10px;
+
+        /*height: auto !important;
         height: 100%;
-        /* Negative indent footer by it's height */
-        margin: 0 auto -60px;
+         Negative indent footer by it's height 
+        margin: 0 auto -60px;*/
       }
 
-      /* Set the fixed height of the footer here */
-      #push,
-      #footer {
-        height: -60px;
+      .wrap:after {
+        content: "";
+        display: block;
       }
+      
+      /* Set the fixed height of the footer here */
+      
       #footer {
         background-color: #f5f5f5;
+        position: relative;
+        height: 25px;
+        clear: both; 
       }
 
       /* Lastly, apply responsive CSS fixes as necessary */
-      @media (max-width: 767px) {
+      /*@media (max-width: 767px) {
         #footer {
           width: 90px;
           margin-left: -20px;
@@ -49,7 +56,7 @@
           padding-left: 20px;
           padding-right: 20px;
         }
-      }
+      }*/
 
       #map-canvas {
         height: 70%;
@@ -61,48 +68,44 @@
   </style>
 
   <body>
-    
     <div class="container">
+        <!-- Static navbar -->
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header"> <a class="navbar-brand" href="#">Closest</a>
 
-      <!-- Static navbar -->
-      <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Closest</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="/">Home</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/">Home</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!--/.container-fluid -->
+        </nav>
     </div>
-
-      <!-- Main component for a primary marketing message or call to action -->
-
-      <div class="container">
-         <div class="col-xs-4 col-xs-offset-4" >
-            <div class="form_focus">
-        <FORM NAME="myform" ID="search-box" ACTION="" METHOD="GET">
-          <label for='user-input'>Find me a:  </label>
-        <INPUT TYPE="text" NAME="inputbox" VALUE="Donut" ID="user-input">
-        <INPUT TYPE="button" NAME="button" Value="Click" ID="user-submit">
-        </FORM>
-    </div>
-</div>
-
-      </div>
-        <div class="shops">
-
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="wrap">
+        <div class="container">
+            <div class="col-xs-4 col-xs-offset-4">
+                <div class="form_focus">
+                    <FORM NAME="myform" ID="search-box" ACTION="" METHOD="GET">
+                        <label for='user-input'>Find me a:</label>
+                        <INPUT TYPE="text" NAME="inputbox" VALUE="Donut" ID="user-input">
+                        <INPUT TYPE="button" NAME="button" Value="Click" ID="user-submit">
+                    </FORM>
+                </div>
+            </div>
         </div>
-     
-       
+        <div class="shops"></div>
     </div>
-<div id="map-canvas"></div>
+    <div id="map-canvas"></div>
+    </div>
     <div id="footer">
-      <div class="container">
-        <p class="muted credit">Ben Gross & Joe Cardarelli <a href="https://github.com/JoeJohnRobert/flatiron_presents">Closest: Github</p>
+        <div class="container">
+            <p class="muted credit">Ben Gross & Joe Cardarelli <a href="https://github.com/JoeJohnRobert/flatiron_presents">Closest: Github</p>
       </div>
     </div>
 
