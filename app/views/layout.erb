@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="viewport" content="initial-scale=1.0, user-scalable=no"> -->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 
     <title>Closest: A flatiron App</title>
 
@@ -48,10 +50,18 @@
           padding-right: 20px;
         }
       }
+
+      #map-canvas {
+        height: 70%;
+        margin-left: 15%;
+        padding: 0px;
+        width: 70%;
+      }
+      
   </style>
 
   <body>
-    <div id="wrap">
+    
     <div class="container">
 
       <!-- Static navbar -->
@@ -86,10 +96,10 @@
         <div class="shops">
 
         </div>
-     </div>
-       <div id="push"></div>
+     
+       
     </div>
-
+<div id="map-canvas"></div>
     <div id="footer">
       <div class="container">
         <p class="muted credit">Ben Gross & Joe Cardarelli <a href="https://github.com/JoeJohnRobert/flatiron_presents">Closest: Github</p>
@@ -108,7 +118,7 @@
     }
     //Sets startPos and times out if time is too long
     $("#user-submit").click(function () {
-        var_name = document.getElementById("search-box").style.display = 'none';
+       
         var startPos;
         var geoOptions = {
             timeout: 10 * 1000
@@ -117,6 +127,7 @@
             var latitude = position.coords.latitude;
             var longitude = position.coords.longitude;
             var term = $("#user-input").val();
+            
             // console.log(latitude);
             // console.log(longitude);
             $.ajax({
@@ -131,8 +142,13 @@
                     JSON.parse(response).forEach(function(arr){
                       $(".shops").append("<a href=" + arr[2] + "><li>" + arr[0] + ", Rated: " + arr[1] + " stars, Located " + arr[4] + " away at: " + arr[3] + "</li></a>")
                     });
+
+                    var destLat = JSON.parse(response)[0][5][0];
+                    var destLon = JSON.parse(response)[0][5][1];
+                    calcRoute(latitude, longitude, destLat, destLon);
                 }
-            }).done(function (shops) {
+            }).done(function () {
+                
                 // $(".shops").append(shops);
                 // console.log(shops);
             });
@@ -153,33 +169,9 @@
   </body>
 </html>
 
-<!-- ----------------------------------------------------- -->
+<!-- ----------------------------------------------------- -->  
+<script>
 
-<!-- <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>Directions service</title>
-    <style>
-      html, body, #map-canvas {
-        height: 100%;
-        margin: 0px;
-        padding: 0px
-      }
-      #panel {
-        position: absolute;
-        top: 5px;
-        left: 50%;
-        margin-left: -180px;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-      }
-    </style>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-    <script>
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 var map;
@@ -195,9 +187,9 @@ function initialize() {
   directionsDisplay.setMap(map);
 }
 
-function calcRoute() {
-  var origin      = new google.maps.LatLng(40.7053130, -74.0139110);
-  var destination = new google.maps.LatLng(42.850033, -85.6500523);
+function calcRoute(latitude, longitude, destLat, destLon) {
+  var origin      = new google.maps.LatLng(latitude, longitude);
+  var destination = new google.maps.LatLng(destLat, destLon);
   var request = {
       origin:      origin,
       destination: destination,
@@ -210,45 +202,9 @@ function calcRoute() {
   });
 }
 
-calcRoute();
+
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
-  </head>
-  <body>
-    <!-- <div id="panel">
-    <b>Start: </b>
-    <select id="start" onchange="calcRoute();">
-      <option value="chicago, il">Chicago</option>
-      <option value="st louis, mo">St Louis</option>
-      <option value="joplin, mo">Joplin, MO</option>
-      <option value="oklahoma city, ok">Oklahoma City</option>
-      <option value="amarillo, tx">Amarillo</option>
-      <option value="gallup, nm">Gallup, NM</option>
-      <option value="flagstaff, az">Flagstaff, AZ</option>
-      <option value="winona, az">Winona</option>
-      <option value="kingman, az">Kingman</option>
-      <option value="barstow, ca">Barstow</option>
-      <option value="san bernardino, ca">San Bernardino</option>
-      <option value="los angeles, ca">Los Angeles</option>
-    </select>
-    <b>End: </b>
-    <select id="end" onchange="calcRoute();">
-      <option value="chicago, il">Chicago</option>
-      <option value="st louis, mo">St Louis</option>
-      <option value="joplin, mo">Joplin, MO</option>
-      <option value="oklahoma city, ok">Oklahoma City</option>
-      <option value="amarillo, tx">Amarillo</option>
-      <option value="gallup, nm">Gallup, NM</option>
-      <option value="flagstaff, az">Flagstaff, AZ</option>
-      <option value="winona, az">Winona</option>
-      <option value="kingman, az">Kingman</option>
-      <option value="barstow, ca">Barstow</option>
-      <option value="san bernardino, ca">San Bernardino</option>
-      <option value="los angeles, ca">Los Angeles</option>
-    </select>
-    </div>
-    <div id="map-canvas"></div>
-  </body>
-</html> --> -->
+  
