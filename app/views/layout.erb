@@ -5,58 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-
     <title>Closest: A Flatiron App</title>
-
   </head>
-  <style>
-   html,
-      body {
-        height: 100%;
-        /* The html and body elements cannot have any padding or margin. */
-        overflow-x: hidden;
-      }
-
-      /* Wrapper for page content to push down footer */
-      .wrap {
-        min-height: 85%;
-        margin-bottom: -10px;
-
-      }
-      .wrap,
-        #map-canvas {
-        height: 86%;
-        margin-left: 15%;
-        padding: 0px;
-        width: 70%;
-      }
-      .wrap:after {
-        content: "";
-        height: 25px;
-        display: block;
-      }
-      
-      #footer {
-        background-color: #f5f5f5;
-        position: relative;
-        height: 48px;
-        clear: both; 
-        width: 100%;
-        text-align: left;
-      }
-      .shops {
-        text-align: center;
-        margin-bottom: 15px;
-
-      }
-      .form-inline {
-        text-align: center;
-        padding-bottom: ;
-      }
-      
-  </style>
 
   <body>
     <%= yield_content :body %>
@@ -124,42 +77,40 @@
   </body>
 </html>
 
-<!-- ----------------------------------------------------- -->  
+<!-- ---------------------------------------------------------------------------------------- -->  
 <script>
 
-var directionsDisplay;
-var directionsService = new google.maps.DirectionsService();
-var map;
+  var directionsDisplay;
+  var directionsService = new google.maps.DirectionsService();
+  var map;
 
-function initialize(latitude, longitude) {
-  directionsDisplay = new google.maps.DirectionsRenderer();
-  var current_location = new google.maps.LatLng(latitude, longitude);
-  var mapOptions = {
-    zoom:15,
-    center: current_location
-  };
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  directionsDisplay.setMap(map);
-}
+  function initialize(latitude, longitude) {
+    directionsDisplay = new google.maps.DirectionsRenderer();
+    var current_location = new google.maps.LatLng(latitude, longitude);
+    var mapOptions = {
+      zoom:16,
+      center: current_location
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    directionsDisplay.setMap(map);
+  }
 
-function calcRoute(latitude, longitude, destLat, destLon) {
-  var origin      = new google.maps.LatLng(latitude, longitude);
-  var destination = new google.maps.LatLng(destLat, destLon);
-  var request = {
-      origin:      origin,
-      destination: destination,
-      travelMode:  google.maps.TravelMode.WALKING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    }
-  });
-}
+  function calcRoute(latitude, longitude, destLat, destLon) {
+    var origin      = new google.maps.LatLng(latitude, longitude);
+    var destination = new google.maps.LatLng(destLat, destLon);
+    var request = {
+        origin:      origin,
+        destination: destination,
+        travelMode:  google.maps.TravelMode.WALKING
+    };
+    directionsService.route(request, function(response, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        directionsDisplay.setDirections(response);
+      }
+    });
+  }
 
+  google.maps.event.addDomListener(window, 'load', initialize);
 
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
-    </script>
+</script>
   
