@@ -15,7 +15,6 @@
     <%= yield_content :body %>
     <script>
     // check for Geolocation support
-    // $( "#user-submit" ).click(function() {
     if (navigator.geolocation) {
         console.log('Geolocation is supported!');
               var startPos;
@@ -66,12 +65,8 @@
                     calcRoute(latitude, longitude, destLat, destLon);
 
                 }
-            }).done(function () {
-                
-                // $(".shops").append(shops);
-                // console.log(shops);
-            });
-        //error message 
+            })
+      
     });
     </script>
   </body>
