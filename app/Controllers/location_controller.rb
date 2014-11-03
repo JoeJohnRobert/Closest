@@ -11,7 +11,7 @@ class LocationController < ApplicationController
   end
 
   get '/' do 
-    erb :'layout'
+    erb :index
   end
 
   get '/results' do 

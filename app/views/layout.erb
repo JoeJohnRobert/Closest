@@ -57,47 +57,7 @@
   </style>
 
   <body>
-    <div class="container">
-        <!-- Static navbar -->
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header"> <a class="navbar-brand" href="/">Closest</a>
-
-                </div>
-                <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                    </ul>
-                </div>
-                <!--/.nav-collapse -->
-            </div>
-            <!--/.container-fluid -->
-        </nav>
-    </div>
-    <!-- Main component for a primary marketing message or call to action -->
-    <div class="wrap">
-        <!-- <div class="container"> -->
-            <!-- <div class="col-xs-6 col-xs-offset-4"> -->
-                <div class="form_focus">
-                    <FORM NAME="myform" CLASS="form-inline" role="form" ID="search-box" ACTION="" METHOD="GET">
-                        <label for='user-input'>Find me a:</label>
-                        <INPUT TYPE="text" class="form-control" NAME="inputbox" VALUE="Donut" ID="user-input">
-                        <INPUT TYPE="button" CLASS="btn btn-default" NAME="button" Value="Find" ID="user-submit">
-                    </FORM>
-                </div>
-            <!-- </div> -->
-        <!-- </div> -->
-        <div class="shops"></div>
-    <div id="map-canvas"></div>
-    </div>
-    </div>
-    <div id="footer">
-        <div class="container">
-            <p class="muted credit">Ben Gross & Joe Cardarelli <a href="https://github.com/JoeJohnRobert/flatiron_presents">Closest: Github</p>
-      </div>
-    </div>
-
-
-
+    <%= yield_content :body %>:
     <script>
     // check for Geolocation support
     // $( "#user-submit" ).click(function() {
