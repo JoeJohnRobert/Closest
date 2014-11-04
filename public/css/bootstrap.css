@@ -6,6 +6,28 @@
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
+/*a.github{
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    text-indent: 100%;
+    overflow: hidden; 
+    white-space: nowrap;
+    background: url(../images/github-10-48.gif) no-repeat;  
+  }*/
+
+/*}
+a.github:hover {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    text-indent: 100%;
+    overflow: hidden; 
+    white-space: nowrap;
+    background: url(../images/github-10-48-hover.gif) no-repeat;
+
+}*/
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
