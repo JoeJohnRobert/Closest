@@ -18,9 +18,9 @@ class LocationController < ApplicationController
     @lat = params[:lat]
     @lon = params[:lon]
     @input = params[:input]
-    bananna = GetYelpResults.new(@input, @lat.to_f, @lon.to_f)
+    bananna = GetFourSquareResults.new(@input, @lat.to_f, @lon.to_f)
     # binding.pry
-    bananna.get_yelp_results.to_json
+    bananna.get_foursquare_results.to_json
   end
 
 end
