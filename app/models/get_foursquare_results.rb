@@ -1,7 +1,6 @@
 class GetFourSquareResults
 
  attr_reader :query, :coordinates, :version
- CLIENT = Foursquare2::Client.new(:client_id => 'KZVHSGAFQZ4KROUPWBSTS2AAST02DJR2BFE5EWR5RLHJRUM5', :client_secret => 'QU32FMB0EBACHOQBLCDHJ2MWIW2UWZMTSRGFYQTHV3ECZATA')
 
   def initialize(query, lat, lon)
     # @query = query
@@ -11,6 +10,7 @@ class GetFourSquareResults
     @version = Time.now.strftime("%Y%m%d").to_i
   end  
 
+ CLIENT = Foursquare2::Client.new(:client_id => 'KZVHSGAFQZ4KROUPWBSTS2AAST02DJR2BFE5EWR5RLHJRUM5', :client_secret => 'QU32FMB0EBACHOQBLCDHJ2MWIW2UWZMTSRGFYQTHV3ECZATA')
   
 
   def get_foursquare_results
@@ -25,7 +25,7 @@ class GetFourSquareResults
         end   
       address = biz["location"]["formattedAddress"]
       search_result_coords = [biz["location"]["lat"], biz["location"]["lon"]] 
-      search_results << [biz["name"], biz["hereNow"]["count"], "http://www.foursquare.com", address, distance, search_result_coords]
+      search_results << [biz["name"], biz["hereNow"]["count"], "http://www.foursquare.com/venue/#{biz['id']}", address, distance, search_result_coords]
 
     end
     search_results  
