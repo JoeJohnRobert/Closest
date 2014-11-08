@@ -4,12 +4,18 @@ GEM
     backports (3.6.3)
     coderay (1.1.0)
     daemons (1.1.9)
+    dotenv (1.0.2)
     eventmachine (1.0.3)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
+    foursquare2 (2.0.1)
+      faraday (~> 0.8)
+      faraday_middleware (>= 0.8)
+      hashie (>= 1.0, < 3.0.0)
     geocoder (1.2.5)
+    hashie (2.1.2)
     method_source (0.8.2)
     multi_json (1.10.1)
     multipart-post (2.0.0)
@@ -53,6 +59,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
+  foursquare2
   geocoder
   pry
   rake
