@@ -4,7 +4,7 @@ class GetYelpResults
 
   def initialize(query, lat, lon)
     @query = query
-    @coordinates = { latitude: lat, longitude: lon }
+    @coordinates = {latitude: lat, longitude: lon}
   end  
 
   
@@ -24,16 +24,14 @@ class GetYelpResults
         if distance > 1000
           distance = "#{(distance * 0.000189394).to_s.slice(0,3)} miles"  
         else
-          distance = "#{distance.to_i} ft"  
+          distance = "#{distance.to_i} feet"  
         end   
       address = [biz.location.address, biz.location.city, biz.location.state_code, biz.location.postal_code].join(", ")
       search_result_coords = Geocoder.coordinates(address)  
       search_results << [biz.name, biz.rating, biz.url, address, distance, search_result_coords]
-
     end
     search_results  
   end
-
 end   
 
 
