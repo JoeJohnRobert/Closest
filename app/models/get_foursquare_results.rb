@@ -3,10 +3,8 @@ class GetFourSquareResults
  attr_reader :query, :coordinates, :version
 
   def initialize(query, lat, lon)
-    # @query = query
-    @query = 'Coffee'
-    # @coordinates = (lat, lon)
-    @coordinates = '40.663498, -73.994319'
+    @query = query
+    @coordinates = "#{lat}, #{lon}"
     @version = Time.now.strftime("%Y%m%d").to_i
   end  
 
@@ -15,7 +13,7 @@ class GetFourSquareResults
 
   def get_foursquare_results
     search_results = []
-    response = CLIENT.search_venues(:ll => @coordinates, :query => @query, :limit => 1, :v => @version)
+    response = CLIENT.search_venues(:ll => @coordinates, :query => @query, :limit => 5, :v => @version)
     response["venues"].each do |biz|
       distance = (biz["location"]["distance"].to_f * 3.28084)
         if distance > 1000
@@ -24,14 +22,16 @@ class GetFourSquareResults
           distance = "#{distance.to_i} ft"  
         end   
       address = biz["location"]["formattedAddress"]
-      search_result_coords = [biz["location"]["lat"], biz["location"]["lon"]] 
-      search_results << [biz["name"], biz["hereNow"]["count"], "http://www.foursquare.com/venue/#{biz['id']}", address, distance, search_result_coords]
+      search_result_coords = [biz["location"]["lat"], biz["location"]["lng"]]
+      search_results.insert(biz["location"]["distance"], [biz["name"], biz["hereNow"]["count"], "http://www.foursquare.com/venue/#{biz['id']}", address, distance, search_result_coords]) 
+      # search_results << [biz["name"], biz["hereNow"]["count"], "http://www.foursquare.com/venue/#{biz['id']}", address, distance, search_result_coords]
 
     end
-    search_results  
+    # binding.pry
+    [search_results.compact[0]]  
   end
 
-end   
+end     
 
 
 
