@@ -13,7 +13,8 @@ class GetFourSquareResults
 
   def get_foursquare_results
     search_results = []
-    response = CLIENT.search_venues(:ll => @coordinates, :query => @query, :limit => 5, :v => @version)
+    response = CLIENT.search_venues(:ll => @coordinates, :query => @query, :limit => 50, :radius => 1000, :v => @version)
+    # binding.pry
     response["venues"].each do |biz|
       distance = (biz["location"]["distance"].to_f * 3.28084)
         if distance > 1000
@@ -27,7 +28,7 @@ class GetFourSquareResults
       # search_results << [biz["name"], biz["hereNow"]["count"], "http://www.foursquare.com/venue/#{biz['id']}", address, distance, search_result_coords]
 
     end
-    # binding.pry
+     # binding.pry
     [search_results.compact[0]]  
   end
 
