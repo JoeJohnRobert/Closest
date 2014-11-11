@@ -1390,8 +1390,8 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
+  /*padding-right: 15px;*/
+  /*padding-left: 15px;*/
   padding-bottom: ;
   margin-right: auto;
   margin-left: auto;
@@ -1403,12 +1403,12 @@ pre code {
 }
 @media (min-width: 992px) {
   .container {
-    width: 970px;
+    width: auto;
   }
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: auto;
   }
 }
 .container-fluid {
@@ -3874,6 +3874,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   position: relative;
   min-height: 50px;
   margin-bottom: 20px;
+  width: auto;
   border: 1px solid transparent;
 }
 @media (min-width: 768px) {
@@ -3983,8 +3984,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-brand {
   float: left;
   height: 50px;
-  padding: 15px 15px;
-  font-size: 20px;
+  padding: 17px 15px;
+  font-size: 33px;
   line-height: 20px;
 }
 .navbar-brand:hover,
@@ -4246,7 +4247,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
   border-color: #e7e7e7;
-  border-radius: 5px;
+  /*border-radius: 5px;*/
 }
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,

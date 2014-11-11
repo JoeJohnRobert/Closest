@@ -9,6 +9,7 @@ html,
   .wrap {
     min-height: 85%;
     margin-bottom: -10px;
+    width: 80%;
     /*background-image: url("../images/sidewalk_pattern.jpg")*/
 
   }
