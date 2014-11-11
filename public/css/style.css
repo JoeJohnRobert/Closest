@@ -3,19 +3,22 @@ html,
     height: 100%;
     /* The html and body elements cannot have any padding or margin. */
     overflow-x: hidden;
+    background-image: url("../images/map.jpg")
   }
 
   .wrap {
     min-height: 85%;
     margin-bottom: -10px;
+    /*background-image: url("../images/sidewalk_pattern.jpg")*/
 
   }
   .wrap,
     #map-canvas {
     height: 86%;
     margin-left: 15%;
-    padding: 0px;
+    padding: 10px;
     width: 70%;
+    border-radius: 20px;
   }
   .wrap:after {
     content: "";
