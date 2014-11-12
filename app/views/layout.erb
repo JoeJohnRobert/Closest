@@ -57,7 +57,7 @@
                 },
                 success: function(response){
                     JSON.parse(response).forEach(function(arr){
-                      $(".shops").append("<p class='lead'><a href=" + arr[2] + ">" + arr[0] + "</a></p>" + " <b>Located</b> " + arr[4] + " away at: <b>" + arr[3] + "</b></p> <b>People Currently Checked in:</b> " + arr[1])
+                      $(".shops").append("<p class='lead'><a href=" + arr[2] + ">" + arr[0] + "</a></p>" + " Located<b> " + arr[4] + "</b> away at " + arr[3] + "</p> <b>People Currently Checked in:</b> " + arr[1])
                     });
 
                     var destLat = JSON.parse(response)[0][5][0];

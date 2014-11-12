@@ -52,5 +52,6 @@ html,
   }
   .form-inline {
     text-align: center;
-    padding-bottom: ;
+    /*padding-bottom: ;*/
+    margin-bottom: 30px;
   }
