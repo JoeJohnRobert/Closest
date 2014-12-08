@@ -41,7 +41,7 @@
         };
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
     //Sets startPos and times out if time is too long
-    $("#user-submit").click(function () {
+    $("#user-submit").submit(function () {
 
      var_name = document.getElementById("search-box").style.display = 'none';
             var term = $("#user-input").val();
